@@ -165,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/26/sigmoid/">
+    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/28/preprocessing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -179,7 +179,338 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/26/sigmoid/" class="post-title-link" itemprop="url">Sigmoid</a>
+            <a href="/2020/01/28/preprocessing/" class="post-title-link" itemprop="url">preprocessing</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-28 21:22:26" itemprop="dateCreated datePublished" datetime="2020-01-28T21:22:26+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 00:00:59" itemprop="dateModified" datetime="2020-01-29T00:00:59+08:00">2020-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Normalization"><a href="#Normalization" class="headerlink" title="Normalization"></a>Normalization</h3><script type="math/tex; mode=display">x_new=x-min/(max-min)</script><h3 id="Standardization"><a href="#Standardization" class="headerlink" title="Standardization"></a>Standardization</h3><script type="math/tex; mode=display">x_new=x-sigma/u</script>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/28/tensorflow_models/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="suaurora">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aurora">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/tensorflow_models/" class="post-title-link" itemprop="url">tensorflow model</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-28 21:06:44" itemprop="dateCreated datePublished" datetime="2020-01-28T21:06:44+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 21:23:12" itemprop="dateModified" datetime="2020-01-29T21:23:12+08:00">2020-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Library"><a href="#Library" class="headerlink" title="Library"></a>Library</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> tensorflow.keras <span class="keyword">as</span> keras</span><br></pre></td></tr></table></figure>
+<h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fashion_mnist = keras.datasets.fashion_mnist</span><br><span class="line">(x_train,y_train),(x_test,y_test) = fashion_mnist.load_data()</span><br><span class="line"></span><br><span class="line">x_valid = x_train[<span class="number">-5000</span>:]</span><br><span class="line">y_valid = y_train[<span class="number">-5000</span>:]</span><br><span class="line">x_train = x_train[:<span class="number">-5000</span>]</span><br><span class="line">y_train = y_train[:<span class="number">-5000</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="data-preprocessing"><a href="#data-preprocessing" class="headerlink" title="data preprocessing"></a>data preprocessing</h3><p>as you can see the data processing is isolated to the following code but you can replace it every where </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"></span><br><span class="line">scaler = StandardScaler()</span><br><span class="line">x_train_scaled = scaler.fit_transform(</span><br><span class="line">    x_train.astype(np.float32).reshape(<span class="number">-1</span>,<span class="number">1</span>)).reshape(<span class="number">-1</span>,<span class="number">28</span>,<span class="number">28</span>)</span><br><span class="line">x_valid_scaled = scaler.transform(</span><br><span class="line">    x_valid.astype(np.float32).reshape(<span class="number">-1</span>,<span class="number">1</span>)).reshape(<span class="number">-1</span>,<span class="number">28</span>,<span class="number">28</span>)</span><br><span class="line">x_test_scaled = scaler.fit_transform(</span><br><span class="line">    x_test.astype(np.float32).reshape(<span class="number">-1</span>,<span class="number">1</span>)).reshape(<span class="number">-1</span>,<span class="number">28</span>,<span class="number">28</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><h4 id="callbacks-TensorBoard-Earlystopping-ModelCheckpoint"><a href="#callbacks-TensorBoard-Earlystopping-ModelCheckpoint" class="headerlink" title="callbacks : TensorBoard/Earlystopping/ModelCheckpoint"></a>callbacks : TensorBoard/Earlystopping/ModelCheckpoint</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os </span><br><span class="line"></span><br><span class="line">log_dir = <span class="string">"./callbacks"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.exists(log_dir):</span><br><span class="line">    os.mkdir(log_dir)</span><br><span class="line"></span><br><span class="line">output_model_file = os.path.join(log_dir,<span class="string">"fashion_mnist_model.h5"</span>)</span><br><span class="line"></span><br><span class="line">callbacks = [</span><br><span class="line">    keras.callbacks.TensorBoard(log_dir),</span><br><span class="line">    keras.callbacks.ModelCheckpoint(output_model_file,save_best_only = <span class="literal">True</span>),</span><br><span class="line">    keras.callbacks.EarlyStopping(patience = <span class="number">5</span>,min_delta = <span class="number">1e-3</span>),</span><br><span class="line">]</span><br><span class="line">model = keras.models.Sequetial([</span><br><span class="line">    keras.layers.Flatten(input_shape([<span class="number">28</span>,<span class="number">28</span>])),</span><br><span class="line">    keras.layers.Dense(<span class="number">128</span>,activation = <span class="string">"relu"</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">256</span>,activation = <span class="string">"relu"</span>),</span><br><span class="line">    keras.layers.BatchNormalization()</span><br><span class="line">    <span class="comment">#activation before batchnormalization</span></span><br><span class="line">    keras.layers.Dense(<span class="number">512</span>)</span><br><span class="line">    keras.layers.BatchNormalization()</span><br><span class="line">    keras.layers.Activation(<span class="string">"relu"</span>)</span><br><span class="line">    <span class="comment">#bathchnormalizarion before activation</span></span><br><span class="line">    keras.layers.Dense(<span class="number">10</span>,activation = <span class="string">"softmax"</span>),</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.compile(loss = <span class="string">"sparse_categorical_crossentropy"</span>,</span><br><span class="line">              optimizer = <span class="string">"sgd"</span>,</span><br><span class="line">              metrics = [<span class="string">"accuracy"</span>])</span><br><span class="line"></span><br><span class="line">history = model.fit(x_train,y_train,</span><br><span class="line">                    epochs = <span class="number">10</span>,</span><br><span class="line">                    validation_data = (x_valid,y_valid),</span><br><span class="line">                    callbacks = callbacks)</span><br><span class="line"></span><br><span class="line">model.evaluate(x_test)</span><br></pre></td></tr></table></figure>
+<p>After the execute it you can see a directory named callbacks.<br>
+satrting a tensorboard.</p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir=callbacks</span><br></pre></td></tr></table></figure>
+<h3 id="visualize"><a href="#visualize" class="headerlink" title="visualize"></a>visualize</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_curve</span><span class="params">(history)</span>:</span></span><br><span class="line">    pd.DataFrame(history.history).plot(figsize = (<span class="number">8</span>,<span class="number">5</span>))</span><br><span class="line">    plt.gca().set_ylim(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/28/metrics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="suaurora">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aurora">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/metrics/" class="post-title-link" itemprop="url">metrics</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-28 21:05:43" itemprop="dateCreated datePublished" datetime="2020-01-28T21:05:43+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 00:00:59" itemprop="dateModified" datetime="2020-01-29T00:00:59+08:00">2020-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/28/optimizer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="suaurora">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aurora">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/optimizer/" class="post-title-link" itemprop="url">optimizer</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-28 21:04:46" itemprop="dateCreated datePublished" datetime="2020-01-28T21:04:46+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 00:00:59" itemprop="dateModified" datetime="2020-01-29T00:00:59+08:00">2020-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="sgd"><a href="#sgd" class="headerlink" title="sgd"></a>sgd</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/28/deal_with_images/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="suaurora">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aurora">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/deal_with_images/" class="post-title-link" itemprop="url">Deal_With_Images</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-28 20:49:30" itemprop="dateCreated datePublished" datetime="2020-01-28T20:49:30+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 00:00:59" itemprop="dateModified" datetime="2020-01-29T00:00:59+08:00">2020-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Flatten-the-image"><a href="#Flatten-the-image" class="headerlink" title="Flatten the image"></a>Flatten the image</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> tensorflow.keras <span class="keyword">as</span> keras</span><br><span class="line"></span><br><span class="line">model = keras.models.Sequential([</span><br><span class="line">    keras.layers.Flatten(input_shape([<span class="number">28</span>,<span class="number">28</span>])),</span><br><span class="line">    keras.layers.Dense(<span class="number">128</span>,activation = <span class="string">"relu"</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">10</span>,activation = <span class="string">"softmax"</span>),</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/28/tensorflow_toy_data/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="suaurora">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aurora">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/tensorflow_toy_data/" class="post-title-link" itemprop="url">tensorflow toy data</a>
         </h1>
 
         <div class="post-meta">
@@ -190,7 +521,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-01-26 21:47:21 / Modified: 23:26:00" itemprop="dateCreated datePublished" datetime="2020-01-26T21:47:21+08:00">2020-01-26</time>
+              <time title="Created: 2020-01-28 20:08:43 / Modified: 20:16:01" itemprop="dateCreated datePublished" datetime="2020-01-28T20:08:43+08:00">2020-01-28</time>
             </span>
 
           
@@ -204,17 +535,209 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h2><p> sigmoid is a very common activation.<br>
-Here is is formula<br></p>
+          <h3 id="tensorflow-dataset-load"><a href="#tensorflow-dataset-load" class="headerlink" title="tensorflow dataset_load"></a>tensorflow dataset_load</h3><p>Generally tensorflow dataset return a tuple (train,test) and each element can split to (feature,label)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> tensorflow.keras <span class="keyword">as</span> keras</span><br><span class="line"></span><br><span class="line">fashion_mnist = keras.datasets.fashion_mnist</span><br><span class="line">(x_train,y_train),(x_test,y_test) = fashion_mnist.load_data()</span><br><span class="line"></span><br><span class="line"><span class="comment">#for further analysis generally we will split training data into two part,one for training one for validation,leave the test dataset untouched</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>sigmoid = 1 / [e ^ (-x) + 1 ]</p>
-</blockquote>
-<p>and always for neural network which is a very good machine learning<br>
-algorithm<br></p> 
+      
+    </div>
 
-<h2 id="Neural-NetWork"><a href="#Neural-NetWork" class="headerlink" title="Neural NetWork"></a>Neural NetWork</h2><p>The perceptron</p>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/28/loss_function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="suaurora">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aurora">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/28/loss_function/" class="post-title-link" itemprop="url">Loss Function</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-28 20:03:14" itemprop="dateCreated datePublished" datetime="2020-01-28T20:03:14+08:00">2020-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 00:00:59" itemprop="dateModified" datetime="2020-01-29T00:00:59+08:00">2020-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="mean-square"><a href="#mean-square" class="headerlink" title="mean_square"></a>mean_square</h3><h3 id="corss-entropy"><a href="#corss-entropy" class="headerlink" title="corss_entropy"></a>corss_entropy</h3><h2 id="Tensorflow"><a href="#Tensorflow" class="headerlink" title="Tensorflow"></a>Tensorflow</h2><h3 id="sparse-categorical-crossentropy"><a href="#sparse-categorical-crossentropy" class="headerlink" title="sparse_categorical_crossentropy"></a>sparse_categorical_crossentropy</h3><p>If y is a value which can be used as an index</p>
+<h3 id="categorical-crossentropy"><a href="#categorical-crossentropy" class="headerlink" title="categorical_crossentropy"></a>categorical_crossentropy</h3><p>If y is a vector such as onehot</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/27/CodingSkill/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="suaurora">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aurora">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/27/CodingSkill/" class="post-title-link" itemprop="url">Coding Skill</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-27 22:21:36" itemprop="dateCreated datePublished" datetime="2020-01-27T22:21:36+08:00">2020-01-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 10:02:50" itemprop="dateModified" datetime="2020-01-29T10:02:50+08:00">2020-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="deal-with-files"><a href="#deal-with-files" class="headerlink" title="deal with files"></a>deal with files</h1><h2 id="1-josn-file-and-xz"><a href="#1-josn-file-and-xz" class="headerlink" title="1. josn file and .xz"></a>1. josn file and .xz</h2><h4 id="And-Flowing-code-is-from-a-kaggle-kernel-i-just-copy-it-and-amend-the-commits"><a href="#And-Flowing-code-is-from-a-kaggle-kernel-i-just-copy-it-and-amend-the-commits" class="headerlink" title="And Flowing code is from a kaggle kernel,i just copy it and amend the commits."></a>And Flowing code is from a kaggle kernel,i just copy it and amend the commits.</h4><h4 id="kaggle-kernel-website"><a href="#kaggle-kernel-website" class="headerlink" title="kaggle kernel website"></a>kaggle kernel <a href="https://www.kaggle.com/jonathanbesomi/caselaw-eda-illinois" target="_blank" rel="noopener">website</a></h4><p>If you are going to be analysis a certain dataset.and it's not a good idea that load the whole data set in the memory.One of the key idea is sampling some data from the dataset.<br></p>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">import</span> lzma</span><br><span class="line"><span class="comment">#always a good idea deal .xz and .lzma format file with lzma library</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">json_path = <span class="string">"../input/caselaw-dataset-illinois/text.data.jsonl.xz"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sample</span><span class="params">(json_path, sample_size=<span class="number">0.25</span>, num_lines=None, drop=[])</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">file_len</span><span class="params">(fname)</span>:</span></span><br><span class="line">        p = subprocess.Popen([<span class="string">'wc'</span>, <span class="string">'-l'</span>, fname], </span><br><span class="line">        <span class="comment">#i'm not quit clear the 'wc' and '-l' meaning what</span></span><br><span class="line">                             stdout=subprocess.PIPE, </span><br><span class="line">                             stderr=subprocess.PIPE)</span><br><span class="line">        result, err = p.communicate()</span><br><span class="line">        <span class="keyword">if</span> p.returncode != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> IOError(err)</span><br><span class="line">        <span class="keyword">return</span> int(result.strip().split()[<span class="number">0</span>])</span><br><span class="line">        <span class="comment">#return how many object in the file</span></span><br><span class="line">    sample_size = sample_size * file_len(json_path)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> lzma.open(json_path) <span class="keyword">as</span> in_file:</span><br><span class="line">        lines = <span class="number">0</span></span><br><span class="line">        sample = []</span><br><span class="line">        line = in_file.readline()</span><br><span class="line">        <span class="keyword">if</span> num_lines:</span><br><span class="line">            <span class="keyword">while</span> (line <span class="keyword">and</span> lines &lt; num_lines):</span><br><span class="line">            <span class="comment">#quit until EOF and reach the seted lines</span></span><br><span class="line">                case = json.loads(str(line, <span class="string">'utf8'</span>))      </span><br><span class="line">                <span class="comment"># drop elements </span></span><br><span class="line">                <span class="keyword">for</span> to_drop <span class="keyword">in</span> drop:</span><br><span class="line">                    temp = case</span><br><span class="line">                    <span class="keyword">for</span> obj <span class="keyword">in</span> to_drop.split(<span class="string">'.'</span>)[:<span class="number">-1</span>]:</span><br><span class="line">                        <span class="keyword">if</span> obj <span class="keyword">in</span> temp:</span><br><span class="line">                            temp = temp[obj]</span><br><span class="line">                    <span class="keyword">if</span> to_drop.split(<span class="string">'.'</span>)[<span class="number">-1</span>] <span class="keyword">in</span> temp:</span><br><span class="line">                        <span class="keyword">del</span> temp[to_drop.split(<span class="string">'.'</span>)[<span class="number">-1</span>]]</span><br><span class="line">                                </span><br><span class="line">                sample.append(case)</span><br><span class="line">                lines = lines + <span class="number">1</span></span><br><span class="line">                line = in_file.readline()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">while</span> (line <span class="keyword">and</span> lines &lt; sample_size):</span><br><span class="line">                case = json.loads(str(line, <span class="string">'utf8'</span>))</span><br><span class="line">                <span class="comment"># drop elements </span></span><br><span class="line">                <span class="keyword">for</span> to_drop <span class="keyword">in</span> drop:</span><br><span class="line">                    temp = case</span><br><span class="line">                    <span class="keyword">for</span> obj <span class="keyword">in</span> to_drop.split(<span class="string">'.'</span>)[:<span class="number">-1</span>]:</span><br><span class="line">                        <span class="keyword">if</span> obj <span class="keyword">in</span> temp:</span><br><span class="line">                            temp = temp[obj]</span><br><span class="line">                    <span class="keyword">if</span> to_drop.split(<span class="string">'.'</span>)[<span class="number">-1</span>] <span class="keyword">in</span> temp:</span><br><span class="line">                        <span class="keyword">del</span> temp[to_drop.split(<span class="string">'.'</span>)[<span class="number">-1</span>]]</span><br><span class="line">                        </span><br><span class="line">                sample.append(case)</span><br><span class="line">                lines = lines + <span class="number">1</span></span><br><span class="line">                line = in_file.readline()</span><br><span class="line">        <span class="keyword">return</span> sample</span><br></pre></td></tr></table></figure>
+<p>The following code may should be optimized but just leave it as a inspiration,and I can batch the dataset</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">import</span> lzma</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">json_path = <span class="string">"../input/caselaw-dataset-illinois/text.data.jsonl.xz"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sample_1</span><span class="params">(json_path, sample_size=<span class="number">0.25</span>, num = None,num_lines = None,drop=[])</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Sample json file</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">file_len</span><span class="params">(fname)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Given filename, return number of lines</span></span><br><span class="line"><span class="string">        Credits: Ólafur Waage, https://stackoverflow.com/a/845069/3096104</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        p = subprocess.Popen([<span class="string">'wc'</span>, <span class="string">'-l'</span>, fname], stdout=subprocess.PIPE, </span><br><span class="line">                                                  stderr=subprocess.PIPE)</span><br><span class="line">        result, err = p.communicate()</span><br><span class="line">        <span class="keyword">if</span> p.returncode != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> IOError(err)</span><br><span class="line">        <span class="keyword">return</span> int(result.strip().split()[<span class="number">0</span>])</span><br><span class="line">    </span><br><span class="line">    sample_size = sample_size * file_len(json_path)</span><br><span class="line">    <span class="comment">#Here we check it's how many samples in it.</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> lzma.open(json_path) <span class="keyword">as</span> in_file:</span><br><span class="line">        lines = <span class="number">0</span></span><br><span class="line">        sample = []</span><br><span class="line">        <span class="keyword">if</span> num == <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            line = in_file.seek(num,<span class="number">0</span>)</span><br><span class="line">        line = in_file.readline()</span><br><span class="line">        <span class="keyword">if</span> num_lines:</span><br><span class="line">            <span class="keyword">while</span> (line <span class="keyword">and</span> lines &lt; num_lines):</span><br><span class="line">                case = json.loads(str(line, <span class="string">'utf8'</span>))</span><br><span class="line">                        </span><br><span class="line">                <span class="comment"># drop elements </span></span><br><span class="line">                <span class="keyword">for</span> to_drop <span class="keyword">in</span> drop:</span><br><span class="line">                    temp = case</span><br><span class="line">                    <span class="keyword">for</span> obj <span class="keyword">in</span> to_drop.split(<span class="string">'.'</span>)[:<span class="number">-1</span>]:</span><br><span class="line">                        <span class="keyword">if</span> obj <span class="keyword">in</span> temp:</span><br><span class="line">                            temp = temp[obj]</span><br><span class="line">                    <span class="keyword">if</span> to_drop.split(<span class="string">'.'</span>)[<span class="number">-1</span>] <span class="keyword">in</span> temp:</span><br><span class="line">                        <span class="keyword">del</span> temp[to_drop.split(<span class="string">'.'</span>)[<span class="number">-1</span>]]</span><br><span class="line">                                </span><br><span class="line">                sample.append(case)</span><br><span class="line">                lines = lines + <span class="number">1</span></span><br><span class="line">                line = in_file.readline()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">while</span> (line <span class="keyword">and</span> lines &lt; sample_size):</span><br><span class="line">                case = json.loads(str(line, <span class="string">'utf8'</span>))</span><br><span class="line">                <span class="comment"># drop elements </span></span><br><span class="line">                <span class="keyword">for</span> to_drop <span class="keyword">in</span> drop:</span><br><span class="line">                    temp = case</span><br><span class="line">                    <span class="keyword">for</span> obj <span class="keyword">in</span> to_drop.split(<span class="string">'.'</span>)[:<span class="number">-1</span>]:</span><br><span class="line">                        <span class="keyword">if</span> obj <span class="keyword">in</span> temp:</span><br><span class="line">                            temp = temp[obj]</span><br><span class="line">                    <span class="keyword">if</span> to_drop.split(<span class="string">'.'</span>)[<span class="number">-1</span>] <span class="keyword">in</span> temp:</span><br><span class="line">                        <span class="keyword">del</span> temp[to_drop.split(<span class="string">'.'</span>)[<span class="number">-1</span>]]</span><br><span class="line">                        </span><br><span class="line">                sample.append(case)</span><br><span class="line">                lines = lines + <span class="number">1</span></span><br><span class="line">                line = in_file.readline()</span><br><span class="line">        num = in_file.tell()</span><br><span class="line">        <span class="keyword">return</span> sample,num</span><br></pre></td></tr></table></figure>
+<p>If any Question.You are welcome to concate me 3342532305@qq.com<br></p>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/26/activation_functions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="suaurora">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aurora">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/26/activation_functions/" class="post-title-link" itemprop="url">Sigmoid</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-26 21:47:21" itemprop="dateCreated datePublished" datetime="2020-01-26T21:47:21+08:00">2020-01-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 19:46:41" itemprop="dateModified" datetime="2020-01-29T19:46:41+08:00">2020-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h3><script type="math/tex; mode=display">\sigma{(x)}=\frac{1}{e^{-x}+1]}</script><h3 id="relu"><a href="#relu" class="headerlink" title="relu"></a>relu</h3><script type="math/tex; mode=display">y=max(0,x)</script><h3 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h3><script type="math/tex; mode=display">tanh {(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}}</script><h3 id="leaky-RELU"><a href="#leaky-RELU" class="headerlink" title="leaky RELU"></a>leaky RELU</h3><p>$$max(0.1x,x)</p>
+<h3 id="ELU"><a href="#ELU" class="headerlink" title="ELU"></a>ELU</h3>
       
     </div>
 
@@ -369,7 +892,7 @@ algorithm<br></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -457,6 +980,54 @@ algorithm<br></p>
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 

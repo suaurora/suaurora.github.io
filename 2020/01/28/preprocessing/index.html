@@ -46,19 +46,19 @@
   };
 </script>
 
-  <meta name="description" content="sigmoid sigmoid is a very common activation. Here is is formula   sigmoid &#x3D; 1 &#x2F; [e ^ (-x) + 1 ]  and always for neural network which is a very good machine learning algorithm   Neural NetWorkThe perce">
+  <meta name="description" content="Normalizationx_new&#x3D;x-min&#x2F;(max-min)Standardizationx_new&#x3D;x-sigma&#x2F;u">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sigmoid">
-<meta property="og:url" content="https://suaurora.github.io/2020/01/26/sigmoid/index.html">
+<meta property="og:title" content="preprocessing">
+<meta property="og:url" content="https://suaurora.github.io/2020/01/28/preprocessing/index.html">
 <meta property="og:site_name" content="Aurora">
-<meta property="og:description" content="sigmoid sigmoid is a very common activation. Here is is formula   sigmoid &#x3D; 1 &#x2F; [e ^ (-x) + 1 ]  and always for neural network which is a very good machine learning algorithm   Neural NetWorkThe perce">
+<meta property="og:description" content="Normalizationx_new&#x3D;x-min&#x2F;(max-min)Standardizationx_new&#x3D;x-sigma&#x2F;u">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-01-26T13:47:21.602Z">
-<meta property="article:modified_time" content="2020-01-26T15:26:00.020Z">
+<meta property="article:published_time" content="2020-01-28T13:22:26.344Z">
+<meta property="article:modified_time" content="2020-01-28T16:00:59.893Z">
 <meta property="article:author" content="suaurora">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://suaurora.github.io/2020/01/26/sigmoid/">
+<link rel="canonical" href="https://suaurora.github.io/2020/01/28/preprocessing/">
 
 
 <script id="page-configurations">
@@ -70,7 +70,7 @@
   };
 </script>
 
-  <title>Sigmoid | Aurora</title>
+  <title>preprocessing | Aurora</title>
   
 
 
@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/26/sigmoid/">
+    <link itemprop="mainEntityOfPage" href="https://suaurora.github.io/2020/01/28/preprocessing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -182,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Sigmoid
+          preprocessing
         </h1>
 
         <div class="post-meta">
@@ -191,10 +191,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-01-26 21:47:21 / Modified: 23:26:00" itemprop="dateCreated datePublished" datetime="2020-01-26T21:47:21+08:00">2020-01-26</time>
+              <time title="Created: 2020-01-28 21:22:26" itemprop="dateCreated datePublished" datetime="2020-01-28T21:22:26+08:00">2020-01-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-29 00:00:59" itemprop="dateModified" datetime="2020-01-29T00:00:59+08:00">2020-01-29</time>
+              </span>
 
           
 
@@ -207,17 +213,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h2><p> sigmoid is a very common activation.<br>
-Here is is formula<br></p>
-
-<blockquote>
-<p>sigmoid = 1 / [e ^ (-x) + 1 ]</p>
-</blockquote>
-<p>and always for neural network which is a very good machine learning<br>
-algorithm<br></p> 
-
-<h2 id="Neural-NetWork"><a href="#Neural-NetWork" class="headerlink" title="Neural NetWork"></a>Neural NetWork</h2><p>The perceptron</p>
-
+        <h3 id="Normalization"><a href="#Normalization" class="headerlink" title="Normalization"></a>Normalization</h3><script type="math/tex; mode=display">x_new=x-min/(max-min)</script><h3 id="Standardization"><a href="#Standardization" class="headerlink" title="Standardization"></a>Standardization</h3><script type="math/tex; mode=display">x_new=x-sigma/u</script>
     </div>
 
     
@@ -232,8 +228,8 @@ algorithm<br></p>
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/01/26/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2020/01/28/tensorflow_models/" rel="prev" title="tensorflow model">
+      <i class="fa fa-chevron-left"></i> tensorflow model
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -295,7 +291,7 @@ algorithm<br></p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sigmoid"><span class="nav-number">1.</span> <span class="nav-text">sigmoid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-NetWork"><span class="nav-number">2.</span> <span class="nav-text">Neural NetWork</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Normalization"><span class="nav-number">1.</span> <span class="nav-text">Normalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Standardization"><span class="nav-number">2.</span> <span class="nav-text">Standardization</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -309,7 +305,7 @@ algorithm<br></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -397,6 +393,54 @@ algorithm<br></p>
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
