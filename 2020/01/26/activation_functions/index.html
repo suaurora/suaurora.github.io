@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="sigmoid\sigma{(x)}&#x3D;\frac{1}{e^{-x}+1]}reluy&#x3D;max(0,x)tanhtanh {(x)} &#x3D; \frac{e^x - e^{-x}}{e^x + e^{-x}}leaky RELU$$max(0.1x,x) ELU">
+  <meta name="description" content="sigmoid\sigma{(x)}&#x3D;\frac{1}{e^{-x}+1]}reluy&#x3D;max(0,x)tanhtanh {(x)} &#x3D; \frac{e^x - e^{-x}}{e^x + e^{-x}}leaky RELUmax(0.1x,x)  ### ELU  \[ elu&#x3D;\left\{ \begin{aligned} x ~~~~~ &amp;{x\geq0}\\ \alpha(e^x-1) ~">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sigmoid">
 <meta property="og:url" content="https://suaurora.github.io/2020/01/26/activation_functions/index.html">
 <meta property="og:site_name" content="Aurora">
-<meta property="og:description" content="sigmoid\sigma{(x)}&#x3D;\frac{1}{e^{-x}+1]}reluy&#x3D;max(0,x)tanhtanh {(x)} &#x3D; \frac{e^x - e^{-x}}{e^x + e^{-x}}leaky RELU$$max(0.1x,x) ELU">
+<meta property="og:description" content="sigmoid\sigma{(x)}&#x3D;\frac{1}{e^{-x}+1]}reluy&#x3D;max(0,x)tanhtanh {(x)} &#x3D; \frac{e^x - e^{-x}}{e^x + e^{-x}}leaky RELUmax(0.1x,x)  ### ELU  \[ elu&#x3D;\left\{ \begin{aligned} x ~~~~~ &amp;{x\geq0}\\ \alpha(e^x-1) ~">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-26T13:47:21.602Z">
-<meta property="article:modified_time" content="2020-01-29T11:46:41.307Z">
+<meta property="article:modified_time" content="2020-01-29T14:02:56.166Z">
 <meta property="article:author" content="suaurora">
 <meta name="twitter:card" content="summary">
 
@@ -199,7 +199,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-29 19:46:41" itemprop="dateModified" datetime="2020-01-29T19:46:41+08:00">2020-01-29</time>
+                <time title="Modified: 2020-01-29 22:02:56" itemprop="dateModified" datetime="2020-01-29T22:02:56+08:00">2020-01-29</time>
               </span>
 
           
@@ -213,8 +213,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h3><script type="math/tex; mode=display">\sigma{(x)}=\frac{1}{e^{-x}+1]}</script><h3 id="relu"><a href="#relu" class="headerlink" title="relu"></a>relu</h3><script type="math/tex; mode=display">y=max(0,x)</script><h3 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h3><script type="math/tex; mode=display">tanh {(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}}</script><h3 id="leaky-RELU"><a href="#leaky-RELU" class="headerlink" title="leaky RELU"></a>leaky RELU</h3><p>$$max(0.1x,x)</p>
-<h3 id="ELU"><a href="#ELU" class="headerlink" title="ELU"></a>ELU</h3>
+        <h3 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h3><script type="math/tex; mode=display">\sigma{(x)}=\frac{1}{e^{-x}+1]}</script><h3 id="relu"><a href="#relu" class="headerlink" title="relu"></a>relu</h3><script type="math/tex; mode=display">y=max(0,x)</script><h3 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h3><script type="math/tex; mode=display">tanh {(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}}</script><h3 id="leaky-RELU"><a href="#leaky-RELU" class="headerlink" title="leaky RELU"></a>leaky RELU</h3><script type="math/tex; mode=display">max(0.1x,x)
+
+### ELU
+
+\[
+elu=\left\{
+\begin{aligned}
+x ~~~~~ &{x\geq0}\\
+\alpha(e^x-1) ~~ &{x<0}
+\end{aligned}
+\right.
+\]
+
+### MaxOut
+
+$$max(w^T_1 \times x+b_1,w^T_2 \times x+b_2)</script>
     </div>
 
     
@@ -295,7 +309,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid"><span class="nav-number">1.</span> <span class="nav-text">sigmoid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#relu"><span class="nav-number">2.</span> <span class="nav-text">relu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tanh"><span class="nav-number">3.</span> <span class="nav-text">tanh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leaky-RELU"><span class="nav-number">4.</span> <span class="nav-text">leaky RELU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ELU"><span class="nav-number">5.</span> <span class="nav-text">ELU</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid"><span class="nav-number">1.</span> <span class="nav-text">sigmoid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#relu"><span class="nav-number">2.</span> <span class="nav-text">relu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tanh"><span class="nav-number">3.</span> <span class="nav-text">tanh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leaky-RELU"><span class="nav-number">4.</span> <span class="nav-text">leaky RELU</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
