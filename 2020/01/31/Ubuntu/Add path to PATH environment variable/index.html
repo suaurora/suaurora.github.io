@@ -54,7 +54,7 @@
 <meta property="og:description" content="show the PATH environment variable 1echo $PATH 服务器的注意事项： 远程服务器不允许关机，只能重启 重启时应关闭所有服务 不要在服务器访问的高峰运行高负载命令(杀毒，查找，系统备份等) 远程配置防火墙（过滤器，过滤掉ip，端口等）的时候不要把自己踢出服务器 合理的密码规范并且定期更新 合理分配权限，越小越好，系统启动的服务越少越好 定期备份重要数据和日">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-31T03:31:22.796Z">
-<meta property="article:modified_time" content="2020-02-23T04:04:52.058Z">
+<meta property="article:modified_time" content="2020-02-24T05:03:22.767Z">
 <meta property="article:author" content="suaurora">
 <meta name="twitter:card" content="summary">
 
@@ -199,7 +199,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-23 12:04:52" itemprop="dateModified" datetime="2020-02-23T12:04:52+08:00">2020-02-23</time>
+                <time title="Modified: 2020-02-24 13:03:22" itemprop="dateModified" datetime="2020-02-24T13:03:22+08:00">2020-02-24</time>
               </span>
 
           
@@ -224,6 +224,51 @@
 <li>合理分配权限，越小越好，系统启动的服务越少越好</li>
 <li>定期备份重要数据和日志，不要把鸡蛋放在同一个篮子里</li>
 </ol>
+<h2 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h2><ol>
+<li><p>命令格式与目录处理命令ls</p>
+<blockquote>
+<p>命令格式： 命令 [-options] [parameters]<br>ls -la /etc </p>
+</blockquote>
+</li>
+<li></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /Desktop/2020/02/</span><br><span class="line">mkdir /Desktop/2020/03 /Desktop/2020/04</span><br><span class="line">rmdir /Desktop/2020/02 (删除空目录)</span><br><span class="line">rmdir -p /Desktop/2020</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> . (.当前目录)</span><br><span class="line"><span class="built_in">cd</span> ..(.上级目录)</span><br></pre></td></tr></table></figure>
+<ol>
+<li><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp [<span class="built_in">source</span> path] [target path](适用于文件)</span><br><span class="line">cp -r [] [] (使用文件夹)</span><br><span class="line">cp [] [] [] [] [] [target path](复制文件的创建时间和源文件的创建时间是不一样的，我们可以使用-p，选项不修改文件的创建时间)</span><br><span class="line">cp -p [<span class="built_in">source</span> path] [target path](-p 保存文件的属性)</span><br><span class="line">也可以在复制的时候修改文件名</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>4.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv [<span class="built_in">source</span> file] [target file] (类似于cp)</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm [target file]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>6.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch [filename]</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cat [filename] (比较适合浏览较短的文件)</span><br><span class="line">cat -n [filename]</span><br><span class="line"></span><br><span class="line">tac [filename] (反向显示)</span><br><span class="line"></span><br><span class="line">more [filename] (可以分页显示)&#123;进入文件浏览模式之后，空格或f进行翻页，Enter进行换行，q退出&#125;</span><br><span class="line">less [filename] (可以向上翻页)『进入浏览模式之后 &#x2F;search ,然后N，表示next』</span><br><span class="line"></span><br><span class="line">head -[n] [filename] (显示文件的前n行，默认显示前10行)</span><br><span class="line">tail -[n] [filename] (显示文件的后n行，默认显示后10行)</span><br><span class="line">tail -f [filename] (动态查看文件)</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s [source file] [target file] (create a soft link)『所有的用户都有全操作权限』，如果删除了源文件，无法打开软连接文件</span><br><span class="line">ln [source file] [target file] &#123;相比于cp -p ln可以同步更新文件&#125;,硬链接的文件id等于源文件的🆔id，不能跨分区链接，不能针对目录使用</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="权限管理命令"><a href="#权限管理命令" class="headerlink" title="权限管理命令"></a>权限管理命令</h2><p>only root and owner can modify the file 权限<br>chmod [{ugoa} {+-=}{rwx}][file or directory]] 『可以同时赋予多个权限，之需要使用“，”分割就可以了』<br>chmod [mode = 421] 『r=4,w=2,x=1』 [filename or directory]<br>when modify 上层目录权限，不会改变下层目录权限，如果需要全部改变子目录下所有文件的权限，可加上选项 -R</p>
+<h3 id="针对文件，针对目录"><a href="#针对文件，针对目录" class="headerlink" title="针对文件，针对目录"></a>针对文件，针对目录</h3><ol>
+<li>r 读取权限 可以查看文件内容 cat/more/less/tac/head/tail 可以列出目录中的内容</li>
+<li>w 写入权限 可以修改文件内容                             可以在目录中创建删除权限</li>
+<li>x 执行权限 可以执行文件                                可以进入目录</li>
+</ol>
+<p>chaneg owner </p>
+<p>chown [username] [filename or directory] 只有root才能更该文件所有者</p>
+<p>umask [-S] {文件的默认缺省权限,-S以rwx显示} 【缺省创建文件的权限默认没有x权限】</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chmod 640 filename</span><br><span class="line">chmod u+x,g+w,o-r filename</span><br><span class="line">chmod -R 777 directoryname</span><br><span class="line"></span><br><span class="line"><span class="built_in">umask</span> -S</span><br><span class="line"><span class="built_in">umask</span> 077</span><br></pre></td></tr></table></figure>
+<h2 id="文件搜索命令"><a href="#文件搜索命令" class="headerlink" title="文件搜索命令"></a>文件搜索命令</h2><p>find [search range] [match condition]</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">find /etc -name init</span><br><span class="line">find /etc -name *init* &#123;包含所有的包含init的文件&#125;</span><br><span class="line">find /etc -name init??? &#123;以init开头，后面有3个字符的文件&#125;</span><br><span class="line">find /etc -iname init??? &#123;不区分大小写&#125;</span><br><span class="line">find /etc -size +204800 [+,-,=] &#123;数据块：512字节，0.5k,100MB = 204800&#125;&#123;查找大于100Mb的文件&#125;</span><br><span class="line">find /etc -size -204800 -[a,o] -size +163840 &#123;a 表示 and，o表示or&#125;</span><br><span class="line">find /etc -user [username]</span><br><span class="line">find /etc -group [groupname]</span><br><span class="line">find /etc -amin -5 [access time] &#123;5分钟之内查看的文件&#125;</span><br><span class="line">find /etc -cmin +30 [change time file characters] 『超过30分钟』</span><br><span class="line">find /etc -mmin [modify time file content]</span><br><span class="line">find /etc -<span class="built_in">type</span> [fdl] &#123;按照文件类型查找&#125;</span><br><span class="line">find /etc -name inittab -[<span class="built_in">exec</span>,ok] ls -l &#123;&#125; \;</span><br><span class="line">find /etc -inum [fileid]</span><br></pre></td></tr></table></figure>
+<p>locate [filename] 『无法查找到实时创建的文件，也无法查找在/tmp文件夹下的文件，因为这里之保存了临时文件』<br>locate updatedb<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locate updatedb</span><br></pre></td></tr></table></figure></p>
+<p>which [command]<br>whereis [command] {除了命令位置，还可以找到文件的帮助文件}<br>grep -[i] [target characters] [filename] {在文件内容中查找内容}<br>grep -v ^# /etc/inittab {去除掉以#开头的行}</p>
+<h2 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h2><p>man [commmand]<br>man [filename] {只需要filename}<br>whatis [command] 『直接读取命令简短的介绍信息』<br>apropos [config filename]<br>[command] —help<br>info [command]</p>
+<p>type [command] {可以判断命令是否是shell内置的命令}<br>help [command] {可以查看shell内置的命令}</p>
+<h2 id="用户管理命令"><a href="#用户管理命令" class="headerlink" title="用户管理命令"></a>用户管理命令</h2><p>useradd 『执行权限root』<br>passwd [username] {普通用户直接passwd使用，因为只能更改自己的密码}<br>who {查看当前登陆的用户}<br>uptime [判断服务器负载]</p>
+<h2 id="压缩解压命令"><a href="#压缩解压命令" class="headerlink" title="压缩解压命令"></a>压缩解压命令</h2><h2 id="网络命令"><a href="#网络命令" class="headerlink" title="网络命令"></a>网络命令</h2><h2 id="关机重启命令"><a href="#关机重启命令" class="headerlink" title="关机重启命令"></a>关机重启命令</h2><p>文件<br>-文件 d文件夹 l软连接</p>
 
     </div>
 
@@ -305,7 +350,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器的注意事项："><span class="nav-number">1.</span> <span class="nav-text">服务器的注意事项：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器的注意事项："><span class="nav-number">1.</span> <span class="nav-text">服务器的注意事项：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件处理命令"><span class="nav-number">2.</span> <span class="nav-text">文件处理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限管理命令"><span class="nav-number">3.</span> <span class="nav-text">权限管理命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#针对文件，针对目录"><span class="nav-number">3.1.</span> <span class="nav-text">针对文件，针对目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件搜索命令"><span class="nav-number">4.</span> <span class="nav-text">文件搜索命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#帮助命令"><span class="nav-number">5.</span> <span class="nav-text">帮助命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户管理命令"><span class="nav-number">6.</span> <span class="nav-text">用户管理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压缩解压命令"><span class="nav-number">7.</span> <span class="nav-text">压缩解压命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络命令"><span class="nav-number">8.</span> <span class="nav-text">网络命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关机重启命令"><span class="nav-number">9.</span> <span class="nav-text">关机重启命令</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
